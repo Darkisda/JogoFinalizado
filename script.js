@@ -35,10 +35,10 @@ let colisao = {
 };
 
 mapa.onload = function(){
-    for(var i = 0; i < HEIGHT; i += TILE ){
-        for(var j = 0; j < WIDTH; j += TILE){
+    for(var i = 0; i < WIDTH; i += TILE ){
+        for(var j = 0; j < HEIGHT; j += TILE){
             ctx.drawImage(mapa, 0, 0, TILE, TILE, i, j, NUM_TILES_W, NUM_TILES_H);
-            if((j == 0 || j == WIDTH - TILE ) || (i == 0 || i == HEIGHT - TILE) ){
+            if((j == 0 || j == HEIGHT - TILE ) || (i == 0 || i == WIDTH - TILE) ){
                 ctx.drawImage(mapa, 69, 26, 25, 21, i, j, 25, 21);
             }
         }
@@ -128,14 +128,14 @@ function draw(){
         walkxMonster -= velocidadeMonstro;
         direcaoMonstro = 3;
         flagPosição = 1;
-    }else if(walkxMonster < walkx){
+    }if(walkxMonster < walkx){
         walkxMonster += velocidadeMonstro;
         direcaoMonstro = 2;
         flagPosição = 1;
-    }else if( walkyMonster > walky){
+    }if( walkyMonster > walky){
         walkyMonster -= velocidadeMonstro;
         direcaoMonstro = 1;
-    }else if( walkyMonster < walky){
+    }if( walkyMonster < walky){
         walkyMonster += velocidadeMonstro;
         direcaoMonstro = 0;
         
